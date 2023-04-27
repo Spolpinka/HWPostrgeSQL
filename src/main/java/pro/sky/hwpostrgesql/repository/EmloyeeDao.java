@@ -7,8 +7,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class EmloyeeDao {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private final JdbcTemplate jdbcTemplate;
+
+    public EmloyeeDao(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public void updateData() {
         String sql = "UPDATE employee SET first_name = ?, last_name = ? WHERE условие";
